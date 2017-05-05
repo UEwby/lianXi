@@ -23,26 +23,66 @@
 <body>
 <!-- 表单 -->
 <div class="container">
-<form class="form-horizontal" action="">
-    <div class="row">
-    <div class="col-lg-6">
-        <div class="input-group">
-            <span class="input-group-addon">
-                <input type="checkbox">
-            </span>
-            <input type="text" class="form-control">
+    <form class="form-horizontal" action="">
+        <h2><a class="">作为额外元素的多选框和单选框</a></h2>
+        <p>可以将多选框或单选框作为额外元素添加到输入框组中。</p>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        <input type="checkbox">
+                    </span>
+                    <input type="text" class="form-control">
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        <input type="radio">
+                    </span>
+                    <input type="text" class="form-control">
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="col-lg-6">
-        <div class="input-group">
-            <span class="input-group-addon">
-                <input type="radio">
-            </span>
-            <input type="text" class="form-control">
+    </form>
+    <form class="form-horizontal">
+        <h2><a class="">作为额外元素的按钮</a></h2>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="input-group">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">Go!</button>
+                </span>
+                    <input type="text" class="form-control">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="input-group">
+                    <input type="text" class="form-control">
+                    <span class="input-group-btn">
+                    <button type="button" class="btn btn-default">Go!</button>
+                </span>
+                </div>
+            </div>
         </div>
-    </div>
-    </div>
-</form>
+    </form>
+    <form class="form-horizontal">
+        <h2><a>作为额外元素的按钮式下拉菜单</a></h2>
+        <div class="input-group">
+            <div class="input-group-btn">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">Action<span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">Separated link</a></li>
+                </ul>
+            </div>
+            <input type="text" class="form-control" aria-label="...">
+        </div>
+    </form>
 </div>
 
 </body>
