@@ -1,0 +1,51 @@
+html:5
+<!--
+<!DOCTYPE html>
+　　<html lang="en">
+　　<head>
+    　　　　<meta charset="UTF-8">
+    　　　　<title></title>
+    　　</head>
+　　<body>
+　　
+　　</body>
+　　</html> 1. E 代表HTML标签。　　2. E#id 代表id属性。　　3. E.class 代表class属性。　　4. E[attr=foo] 代表某一个特定属性。　　5. E{foo} 代表标签包含的内容是foo。　　6. E>N 代表N是E的子元素。　　7. E+N 代表N是E的同级元素。　　8. E^N 代表N是E的上级元素。请看下面的例子 p　　　　p#main.item　　　　a[href=http://xuqian0808.blog.163.com]{码农工作室}　　　　div>p　　　　div+p　　　　p>span^div对应的HTML代码为：<p></p>
+　　
+　　<p id="main" class="item"></p>
+　　
+　　<a href="http://xuqian0808.blog.163.com"></a>
+　　
+　　<div>
+    　　　　<p></p>
+    　　</div>
+　　
+　　<div></div>
+　　<p></p>
+　　
+　　<p><span></span></p>
+　　<div></div>Emmet还提供了连写（E*N）和自动编号（E$*N）功能。 li*3>a　　　div#item$.class$$*3对应的HTML代码为<li><a href=""></a></li>
+　　<li><a href=""></a></li>
+　　<li><a href=""></a></li>
+　　
+　　<div id="item1" class="class01"></div>
+　　<div id="item2" class="class02"></div>
+　　<div id="item3" class="class03"></div>下面是另外一些简写的例子，读者可以自行测试，看看它们转化成怎样的HTML代码。header+main+footer
+　　
+　　table>(thead>tr>th*5)(tbody>tr>td*5)
+　　
+　　nav>ul>(li>a[href=#]{Link})*5haml的简化规则如下：　　1. !!! 5 代表 <!DOCTYPE html>　　2. %E 代表HTML标签。　　3. %E#id 代表id属性。　　4. %E.class 代表class属性。　　5. %E(attr="xxx") 代表某一个特定属性。　　6. %E XXX 代表插入标签的内容。　　7. %E %N 代表N是E的子元素。N如果写在第二行，需要缩进。　　　　!!! 5
+　　%html{lang: 'en'}
+　　　　%head
+　　　　　　%title Haml Demo
+　　　　%body
+　　　　　　%h1 Hello World
+　　　　　　%a(href="http://xuqian0808.blog.163.com" title="码农工作室") 码农工作室　<!DOCTYPE html>
+　　<html lang='en'>
+　　　　<head>
+    　　　　　　<title>Haml Demo</title>
+    　　　　</head>
+　　　　<body>
+　　　　　　<h1>Hello World</h1>
+　　　　　　<a href='http://xuqian0808.blog.163.com' title='码农工作室'>码农工作室</a>
+　　　　</body>
+　　</html>-->

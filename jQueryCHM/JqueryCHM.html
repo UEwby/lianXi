@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>dom对象转换成jQuery对象</title>
+    <style>
+        *{
+            font-family:'微软雅黑';padding:0;margin:0;}
+        .group-wrap{margin: 10px;display: block;}
+        .group-input{
+            text-align: center;
+            overflow: hidden;
+            margin:5px 0;
+            display: block;
+        }
+        .group-input .label{
+            float: left;
+            width: 25px;
+        }
+        .group-input input[type='radio']{
+            float: left;
+            margin-top:5px;
+        }
+        .group-input input[type='checkbox']{
+            float: left;
+            margin-top:5px;
+        }
+    </style>
+    <script src="common/jquery-1.8.3.min.js"></script>
+</head>
+<body>
+<form>
+    <span class="group-wrap">
+        <span class="group-input"><span class="label">A</span><input name="a" type="radio"></span>
+        <span class="group-input"><span class="label">B</span><input name="a" type="radio"></span>
+        <span class="group-input"><span class="label">C</span><input name="a" type="radio"></span>
+        <span class="group-input"><span class="label">D</span><input name="a" type="radio"></span>
+        <span class="group-input"><span class="label">E</span><input name="a" type="radio"></span>
+    </span>
+</form>
+<script>
+    //console.log($('input:radio',document.forms[0]))
+    $('<span class="group-input"><span class="label">F</span><input name="a" type="checkbox"></span>').appendTo($('form .group-wrap').get(0));
+
+
+</script>
+</body>
+</html>

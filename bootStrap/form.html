@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Bootstrap</title>
+    <link rel="stylesheet" type="text/css" href="dist/css/bootstrap.min.css">
+    <script type="text/javascript" src="dist/js/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="dist/js/holder.min.js"></script>
+
+    <style>
+        *{
+            font-family: "微软雅黑";
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <form action="" class="form-horizontal">
+        <fieldset disabled>
+            <legend>linux说明：</legend>
+        <div class="form-group has-feedback">
+            <label for="username">用户名：</label>
+            <input type="text" class="form-control" id="username" name="username" placeholder="username">
+        </div>
+        <div class="form-group has-success">
+            <label for="password">密码：</label>
+            <input type="password" class="form-control" id="password" name="password" >
+        </div>
+        <div class="form-group">
+            <label for="mess">留言：</label>
+            <textarea name="" id="mess" cols="30" rows="10" class="form-control" placeholder="输入"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="city">城市：</label>
+            <select multiple name="" class="form-control" id="city">
+                <option>北京</option>
+                <option>北京</option>
+                <option>北京</option>
+                <option>北京</option>
+                <option>北京</option>
+                <option>北京</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>复选框</label>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" id="checkbox1" name="checkbox1">
+                </label>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" id="checkbox2" name="checkbox2">
+                </label>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" id="checkbox3" name="checkbox3">
+                </label>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" id="checkbox4" name="checkbox4">
+                </label>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" id="checkbox5" name="checkbox5">
+                </label>
+            </div>
+
+        </div>
+
+        <div class="form-group">
+            <label>单选框</label>
+            <div class="radio">
+                <label>
+                    <input type="radio" id="radio1" name="yzm">
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" id="radio2" name="yzm">
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" id="radio3" name="yzm">
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" id="radio4" name="yzm">
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="fileup">文件上传：</label>
+            <input type="file" name="fileup" id="fileup">
+        </div>
+        <div class="form-group">
+            <input type="submit" class="btn btn-primary" value="OK">
+            <input type="reset" class="btn btn-danger" value="Cancel">
+        </div>
+        </fieldset>
+    </form>
+</div>
+
+
+</body>
+</html>

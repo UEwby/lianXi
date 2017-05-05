@@ -1,0 +1,134 @@
+@td_width:616px;
+@fs:14px;
+@color:#8C8C8C;
+*{padding:0;margin:0;}
+ul{list-style: none;}
+a{text-decoration: none;}
+img{border:none;}
+/*.clearfix:after{
+  content:"";
+  display: block;
+  clear: both;
+}*/
+.clearfix{
+  &:after{
+    content:"";
+    display: block;
+    clear: both;
+  }
+  zoom:1;
+}
+
+.bc{
+  margin-left:auto;
+  margin-right:auto;
+}
+.reset{
+  .font14(){
+    font-size:14px;
+  }
+
+}
+.tudou_main{
+  width:@td_width;
+  .bc();
+}
+
+.title{
+  @h:62px;
+  @border_color:#d0d0d0;
+  height:@h;
+  border-top:solid 1px @border_color;
+  margin-top:20px;
+  
+  h3{
+    //font-size: 22px;
+    color: #575757;
+    //font-family:"微软雅黑";
+    //font-weight:normal;
+    font:22px/@h "微软雅黑";
+    margin-top:-1px;
+    position: relative;
+    float: left;
+    height: @h - 1px;
+  }
+  &_nav{
+    float: right;
+    font-size: @fs;
+    color: @color;
+    margin-top: 20px;
+    li{
+      float: left;
+    }
+    a{
+      color: @color;
+      &_hover{
+        color: #ac2925;
+      }
+    }
+    span{
+      margin:0 7px;
+    }
+  }
+}
+
+//内容
+@mr:32px;
+.content{
+  margin-right:-@mr;
+}
+.item{
+  @w:130px;
+  @h:164px;
+  @img_h:78px;
+  width:@w;
+  height:@h;
+  margin-bottom:5px;
+  margin-right:32px;
+  float: left;
+
+  &_img{
+    height:@img_h;
+    position: relative;
+
+    img{
+      width:@w;
+      height:@img_h;
+      display: block;
+    }
+    span{
+      position: absolute;
+      width:35px;
+      height:18px;
+      line-height: 18px;
+      right:0;
+      bottom:0;
+      font-size:12px;
+      color: #fff;
+      text-indent: 9px;
+    }
+    .cq{
+      background-color: #ac2925;
+    }
+    .bq{
+      background-color: #5bc0de;
+    }
+
+
+  }
+  &_list{
+    line-height:22px;
+    font-size:12px;
+    a{
+      color: #666;
+      &:hover{
+        color: #ac2925;
+      }
+    }
+    .username, .play, .mess{
+      padding-left:17px;
+      background-position: left center;
+      background-repeat: no-repeat;
+    }
+  }
+}

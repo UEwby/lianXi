@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>dom对象转换成jQuery对象</title>
+    <style>
+        table{
+            min-width: 1734px;}
+        #table1_tableLayout{
+            margin:0 auto;
+        }
+        *{
+            font-family:'微软雅黑';padding:0;margin:0;
+        }
+        .bd{
+            width: 1751px;
+            height: 500px;
+            overflow: auto;
+            margin:0 auto;
+            position: relative;
+        }
+        .valuelist{
+            position: absolute;}
+        .valuelist td{border:1px solid #ccc; }
+        .valuelist td.none1{border-bottom:none; }
+        .valuelist td.none2{border-top:none; }
+        .valuelist td{}
+        .valuelist td.room{}
+        .headerTop, .headerTop2,.room{color: chocolate;background:#272822}
+        .td-top1{}
+        .td-top2{width:150px;}
+        td.room{width:150px;}
+        th.none1{width:150px;}
+        .td-room{width:150px;}
+        .td-content{width:150px;}
+    </style>
+    <script src="common/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript">
+        function FixTable(TableID, FixColumnNumber, width, height) {
+            /// <summary>
+            ///     锁定表头和列
+            ///     <para> sorex.cnblogs.com </para>
+            /// </summary>
+            /// <param name="TableID" type="String">
+            ///     要锁定的Table的ID
+            /// </param>
+            /// <param name="FixColumnNumber" type="Number">
+            ///     要锁定列的个数
+            /// </param>
+            /// <param name="width" type="Number">
+            ///     显示的宽度
+            /// </param>
+            /// <param name="height" type="Number">
+            ///     显示的高度
+            /// </param>
+            if ($("#" + TableID + "_tableLayout").length != 0) {
+                $("#" + TableID + "_tableLayout").before($("#" + TableID));
+                $("#" + TableID + "_tableLayout").empty();
+            }
+            else {
+                $("#" + TableID).after("<div id='" + TableID + "_tableLayout' style='overflow:hidden;height:" + height + "px; width:" + width + "px;'></div>");
+            }
+            $('<div id="' + TableID + '_tableFix"></div>'
+                + '<div id="' + TableID + '_tableHead"></div>'
+                + '<div id="' + TableID + '_tableColumn"></div>'
+                + '<div id="' + TableID + '_tableData"></div>').appendTo("#" + TableID + "_tableLayout");
+            var oldtable = $("#" + TableID);
+            var tableFixClone = oldtable.clone(true);
+            tableFixClone.attr("id", TableID + "_tableFixClone");
+            $("#" + TableID + "_tableFix").append(tableFixClone);
+            var tableHeadClone = oldtable.clone(true);
+            tableHeadClone.attr("id", TableID + "_tableHeadClone");
+            $("#" + TableID + "_tableHead").append(tableHeadClone);
+            var tableColumnClone = oldtable.clone(true);
+            tableColumnClone.attr("id", TableID + "_tableColumnClone");
+            $("#" + TableID + "_tableColumn").append(tableColumnClone);
+            $("#" + TableID + "_tableData").append(oldtable);
+            $("#" + TableID + "_tableLayout table").each(function () {
+                $(this).css("margin", "0");
+            });
+            var HeadHeight = $("#" + TableID + "_tableHead thead").height();
+            HeadHeight += 2;
+            $("#" + TableID + "_tableHead").css("height", HeadHeight);
+            $("#" + TableID + "_tableFix").css("height", HeadHeight);
+            var ColumnsWidth = 0;
+            var ColumnsNumber = 0;
+            $("#" + TableID + "_tableColumn tr:last td:lt(" + FixColumnNumber + ")").each(function () {
+                ColumnsWidth += $(this).outerWidth(true);
+                ColumnsNumber++;
+            });
+            ColumnsWidth += 2;
+            if ($.browser.msie) {
+                switch ($.browser.version) {
+                    case "7.0":
+                        if (ColumnsNumber >= 3) ColumnsWidth--;
+                        break;
+                    case "8.0":
+                        if (ColumnsNumber >= 2) ColumnsWidth--;
+                        break;
+                }
+            }
+            $("#" + TableID + "_tableColumn").css("width", ColumnsWidth);
+            $("#" + TableID + "_tableFix").css("width", ColumnsWidth);
+            $("#" + TableID + "_tableData").scroll(function () {
+                $("#" + TableID + "_tableHead").scrollLeft($("#" + TableID + "_tableData").scrollLeft());
+                $("#" + TableID + "_tableColumn").scrollTop($("#" + TableID + "_tableData").scrollTop());
+            });
+            $("#" + TableID + "_tableFix").css({ "overflow": "hidden", "position": "relative", "z-index": "50", "background-color": "Silver" });
+            $("#" + TableID + "_tableHead").css({ "overflow": "hidden", "width": width - 17, "position": "relative", "z-index": "45", "background-color": "Silver" });
+            $("#" + TableID + "_tableColumn").css({ "overflow": "hidden", "height": height - 17, "position": "relative", "z-index": "40", "background-color": "Silver" });
+            $("#" + TableID + "_tableData").css({ "overflow": "scroll", "width": width, "height": height, "position": "relative", "z-index": "35" });
+            if ($("#" + TableID + "_tableHead").width() > $("#" + TableID + "_tableFix table").width()) {
+                $("#" + TableID + "_tableHead").css("width", $("#" + TableID + "_tableFix table").width());
+                $("#" + TableID + "_tableData").css("width", $("#" + TableID + "_tableFix table").width() + 17);
+            }
+            if ($("#" + TableID + "_tableColumn").height() > $("#" + TableID + "_tableColumn table").height()) {
+                $("#" + TableID + "_tableColumn").css("height", $("#" + TableID + "_tableColumn table").height());
+                $("#" + TableID + "_tableData").css("height", $("#" + TableID + "_tableColumn table").height() + 17);
+            }
+            $("#" + TableID + "_tableFix").offset($("#" + TableID + "_tableLayout").offset());
+            $("#" + TableID + "_tableHead").offset($("#" + TableID + "_tableLayout").offset());
+            $("#" + TableID + "_tableColumn").offset($("#" + TableID + "_tableLayout").offset());
+            $("#" + TableID + "_tableData").offset($("#" + TableID + "_tableLayout").offset());
+        }
+        $(function () {
+            FixTable("table1", 1, 1751, 400);
+        });
+
+    </script>
+</head>
+<body>
+
+<!--<div class="bd">-->
+<table id="table1" class="valuelist"  cellpadding="0" cellspacing="0">
+     <thead>
+            <tr class="header-tr-tp">
+                <th class="headerTop none1" rowspan="2"><div class="td-top2"></div></th>
+                <th class="headerTop"><div class="td-top1">表头-top</div></th>
+            </tr>
+            <tr class="header-tr-tp">
+                <th class="headerTop2"><div class="td-top2">表头-top</div></th>
+            </tr>
+     </thead>
+     <tbody>
+        <tr>
+            <td class="room"><div class="td-room">表头-left</div></td>
+            <td><div class="td-content">内容-content</div></td>
+        </tr>
+        <tr>
+            <td class="room"><div class="td-room">表头-left</div></td>
+            <td><div class="td-content">内容-content</div></td>
+        </tr>
+        <tr>
+            <td class="room"><div class="td-room">表头-left</div></td>
+            <td><div class="td-content">内容-content</div></td>
+        </tr>
+        <tr>
+            <td class="room"><div class="td-room">表头-left</div></td>
+            <td><div class="td-content">内容-content</div></td>
+        </tr>
+        <tr>
+            <td class="room"><div class="td-room">表头-left</div></td>
+            <td><div class="td-content">内容-content</div></td>
+        </tr>
+        <tr>
+            <td class="room"><div class="td-room">表头-left</div></td>
+            <td><div class="td-content">内容-content</div></td>
+        </tr>
+        <tr>
+            <td class="room"><div class="td-room">表头-left</div></td>
+            <td><div class="td-content">内容-content</div></td>
+        </tr>
+        <tr>
+            <td class="room"><div class="td-room">表头-left</div></td>
+            <td><div class="td-content">内容-content</div></td>
+        </tr>
+        <tr>
+            <td class="room"><div class="td-room">表头-left</div></td>
+            <td><div class="td-content">内容-content</div></td>
+        </tr>
+        <tr>
+            <td class="room"><div class="td-room">表头-left</div></td>
+            <td><div class="td-content">内容-content</div></td>
+        </tr>
+        <tr>
+            <td class="room"><div class="td-room">表头-left</div></td>
+            <td><div class="td-content">内容-content</div></td>
+        </tr>
+        <tr>
+            <td class="room"><div class="td-room">表头-left</div></td>
+            <td><div class="td-content">内容-content</div></td>
+        </tr>
+        <tr>
+            <td class="room"><div class="td-room">表头-left</div></td>
+            <td><div class="td-content">内容-content</div></td>
+        </tr>
+        <tr>
+            <td class="room"><div class="td-room">表头-left</div></td>
+            <td><div class="td-content">内容-content</div></td>
+        </tr>
+        <tr>
+            <td class="room"><div class="td-room">表头-left</div></td>
+            <td><div class="td-content">内容-content</div></td>
+        </tr>
+        <tr>
+            <td class="room"><div class="td-room">表头-left</div></td>
+            <td><div class="td-content">内容-content</div></td>
+        </tr>
+        <tr>
+            <td class="room"><div class="td-room">表头-left</div></td>
+            <td><div class="td-content">内容-content</div></td>
+        </tr>
+        <tr>
+            <td class="room"><div class="td-room">表头-left</div></td>
+            <td><div class="td-content">内容-content</div></td>
+        </tr>
+        <tr>
+            <td class="room"><div class="td-room">表头-left</div></td>
+            <td><div class="td-content">内容-content</div></td>
+        </tr>
+        <tr>
+            <td class="room"><div class="td-room">表头-left</div></td>
+            <td><div class="td-content">内容-content</div></td>
+        </tr>
+        <tr>
+            <td class="room"><div class="td-room">表头-left</div></td>
+            <td><div class="td-content">内容-content</div></td>
+        </tr>
+        <tr>
+            <td class="room"><div class="td-room">表头-left</div></td>
+            <td><div class="td-content">内容-content</div></td>
+        </tr>
+        <tr>
+            <td class="room"><div class="td-room">表头-left</div></td>
+            <td><div class="td-content">内容-content</div></td>
+        </tr>
+        <tr>
+            <td class="room"><div class="td-room">表头-left</div></td>
+            <td><div class="td-content">内容-content</div></td>
+        </tr>
+        <tr>
+            <td class="room"><div class="td-room">表头-left</div></td>
+            <td><div class="td-content">内容-content</div></td>
+        </tr>
+        <tr>
+            <td class="room"><div class="td-room">表头-left</div></td>
+            <td><div class="td-content">内容-content</div></td>
+        </tr>
+        <tr>
+            <td class="room"><div class="td-room">表头-left</div></td>
+            <td><div class="td-content">内容-content</div></td>
+        </tr>
+        <tr>
+            <td class="room"><div class="td-room">表头-left</div></td>
+            <td><div class="td-content">内容-content</div></td>
+        </tr>
+        <tr>
+            <td class="room"><div class="td-room">表头-left</div></td>
+            <td><div class="td-content">内容-content</div></td>
+        </tr>
+        <tr>
+            <td class="room"><div class="td-room">表头-left</div></td>
+            <td><div class="td-content">内容-content</div></td>
+        </tr>
+        <tr>
+            <td class="room"><div class="td-room">表头-left</div></td>
+            <td><div class="td-content">内容-content</div></td>
+        </tr>
+        <tr>
+            <td class="room"><div class="td-room">表头-left</div></td>
+            <td><div class="td-content">内容-content</div></td>
+        </tr>
+        <tr>
+            <td class="room"><div class="td-room">表头-left</div></td>
+            <td><div class="td-content">内容-content</div></td>
+        </tr>
+        <tr>
+            <td class="room"><div class="td-room">表头-left</div></td>
+            <td><div class="td-content">内容-content</div></td>
+        </tr>
+        <tr>
+            <td class="room"><div class="td-room">表头-left</div></td>
+            <td><div class="td-content">内容-content</div></td>
+        </tr>
+        <tr>
+            <td class="room"><div class="td-room">表头-left</div></td>
+            <td><div class="td-content">内容-content</div></td>
+        </tr>
+        <tr>
+            <td class="room"><div class="td-room">表头-left</div></td>
+            <td><div class="td-content">内容-content</div></td>
+        </tr>
+        <tr>
+            <td class="room"><div class="td-room">表头-left</div></td>
+            <td><div class="td-content">内容-content</div></td>
+        </tr>
+        <tr>
+            <td class="room"><div class="td-room">表头-left</div></td>
+            <td><div class="td-content">内容-content</div></td>
+        </tr>
+        <tr>
+            <td class="room"><div class="td-room">表头-left</div></td>
+            <td><div class="td-content">内容-content</div></td>
+        </tr>
+        <tr>
+            <td class="room"><div class="td-room">表头-left</div></td>
+            <td><div class="td-content">内容-content</div></td>
+        </tr>
+        <tr>
+            <td class="room"><div class="td-room">表头-left</div></td>
+            <td><div class="td-content">内容-content</div></td>
+        </tr>
+        <tr>
+            <td class="room"><div class="td-room">表头-left</div></td>
+            <td><div class="td-content">内容-content</div></td>
+        </tr>
+        <tr>
+            <td class="room"><div class="td-room">表头-left</div></td>
+            <td><div class="td-content">内容-content</div></td>
+        </tr>
+        <tr>
+            <td class="room"><div class="td-room">表头-left</div></td>
+            <td><div class="td-content">内容-content</div></td>
+        </tr>
+        <tr>
+            <td class="room"><div class="td-room">表头-left</div></td>
+            <td><div class="td-content">内容-content</div></td>
+        </tr>
+        <tr>
+            <td class="room"><div class="td-room">表头-left</div></td>
+            <td><div class="td-content">内容-content</div></td>
+        </tr>
+        <tr>
+            <td class="room"><div class="td-room">表头-left</div></td>
+            <td><div class="td-content">内容-content</div></td>
+        </tr>
+        <tr>
+            <td class="room"><div class="td-room">表头-left</div></td>
+            <td><div class="td-content">内容-content</div></td>
+        </tr>
+        <tr>
+            <td class="room"><div class="td-room">表头-left</div></td>
+            <td><div class="td-content">内容-content</div></td>
+        </tr>
+        <tr>
+            <td class="room"><div class="td-room">表头-left</div></td>
+            <td><div class="td-content">内容-content</div></td>
+        </tr>
+        <tr>
+            <td class="room"><div class="td-room">表头-left</div></td>
+            <td><div class="td-content">内容-content</div></td>
+        </tr>
+        <tr>
+            <td class="room"><div class="td-room">表头-left</div></td>
+            <td><div class="td-content">内容-content</div></td>
+        </tr>
+        <tr>
+            <td class="room"><div class="td-room">表头-left</div></td>
+            <td><div class="td-content">内容-content</div></td>
+        </tr>
+        <tr>
+            <td class="room"><div class="td-room">表头-left</div></td>
+            <td><div class="td-content">内容-content</div></td>
+        </tr>
+        <tr>
+            <td class="room"><div class="td-room">表头-left</div></td>
+            <td><div class="td-content">内容-content</div></td>
+        </tr>
+        <tr>
+            <td class="room"><div class="td-room">表头-left</div></td>
+            <td><div class="td-content">内容-content</div></td>
+        </tr>
+        <tr>
+            <td class="room"><div class="td-room">表头-left</div></td>
+            <td><div class="td-content">内容-content</div></td>
+        </tr>
+        <tr>
+            <td class="room"><div class="td-room">表头-left</div></td>
+            <td><div class="td-content">内容-content</div></td>
+        </tr>
+        <tr>
+            <td class="room"><div class="td-room">表头-left</div></td>
+            <td><div class="td-content">内容-content</div></td>
+        </tr>
+        <tr>
+            <td class="room"><div class="td-room">表头-left</div></td>
+            <td><div class="td-content">内容-content</div></td>
+        </tr>
+        <tr>
+            <td class="room"><div class="td-room">表头-left</div></td>
+            <td><div class="td-content">内容-content</div></td>
+        </tr>
+        <tr>
+            <td class="room"><div class="td-room">表头-left</div></td>
+            <td><div class="td-content">内容-content</div></td>
+        </tr>
+        <tr>
+            <td class="room"><div class="td-room">表头-left</div></td>
+            <td><div class="td-content">内容-content</div></td>
+        </tr>
+        <tr>
+            <td class="room"><div class="td-room">表头-left</div></td>
+            <td><div class="td-content">内容-content</div></td>
+        </tr>
+        <tr>
+            <td class="room"><div class="td-room">表头-left</div></td>
+            <td><div class="td-content">内容-content</div></td>
+        </tr>
+        <tr>
+            <td class="room"><div class="td-room">表头-left</div></td>
+            <td><div class="td-content">内容-content</div></td>
+        </tr>
+        <tr>
+            <td class="room"><div class="td-room">表头-left</div></td>
+            <td><div class="td-content">内容-content</div></td>
+        </tr>
+        <tr>
+            <td class="room"><div class="td-room">表头-left</div></td>
+            <td><div class="td-content">内容-content</div></td>
+        </tr>
+        <tr>
+            <td class="room"><div class="td-room">表头-left</div></td>
+            <td><div class="td-content">内容-content</div></td>
+        </tr>
+        <tr>
+            <td class="room"><div class="td-room">表头-left</div></td>
+            <td><div class="td-content">内容-content</div></td>
+        </tr>
+        <tr>
+            <td class="room"><div class="td-room">表头-left</div></td>
+            <td><div class="td-content">内容-content</div></td>
+        </tr>
+        <tr>
+            <td class="room"><div class="td-room">表头-left</div></td>
+            <td><div class="td-content">内容-content</div></td>
+        </tr>
+        <tr>
+            <td class="room"><div class="td-room">表头-left</div></td>
+            <td><div class="td-content">内容-content</div></td>
+        </tr>
+        <tr>
+            <td class="room"><div class="td-room">表头-left</div></td>
+            <td><div class="td-content">内容-content</div></td>
+        </tr>
+        <tr>
+            <td class="room"><div class="td-room">表头-left</div></td>
+            <td><div class="td-content">内容-content</div></td>
+        </tr>
+        <tr>
+            <td class="room"><div class="td-room">表头-left</div></td>
+            <td><div class="td-content">内容-content</div></td>
+        </tr>
+        <tr>
+            <td class="room"><div class="td-room">表头-left</div></td>
+            <td><div class="td-content">内容-content</div></td>
+        </tr>
+        <tr>
+            <td class="room"><div class="td-room">表头-left</div></td>
+            <td><div class="td-content">内容-content</div></td>
+        </tr>
+        <tr>
+            <td class="room"><div class="td-room">表头-left</div></td>
+            <td><div class="td-content">内容-content</div></td>
+        </tr>
+        <tr>
+            <td class="room"><div class="td-room">表头-left</div></td>
+            <td><div class="td-content">内容-content</div></td>
+        </tr>
+        </tbody>
+    </table>
+
+<!--</div>-->
+
+</body>
+</html>

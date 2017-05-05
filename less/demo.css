@@ -1,0 +1,119 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+img {
+  border: none;
+}
+/*.clearfix:after{
+  content:"";
+  display: block;
+  clear: both;
+}*/
+.clearfix {
+  zoom: 1;
+}
+.clearfix:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.bc {
+  margin-left: auto;
+  margin-right: auto;
+}
+.tudou_main {
+  width: 616px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.title {
+  height: 62px;
+  border-top: solid 1px #d0d0d0;
+  margin-top: 20px;
+}
+.title h3 {
+  color: #575757;
+  font: 22px/62px "微软雅黑";
+  margin-top: -1px;
+  position: relative;
+  float: left;
+  height: 61px;
+}
+.title_nav {
+  float: right;
+  font-size: 14px;
+  color: #8C8C8C;
+  margin-top: 20px;
+}
+.title_nav li {
+  float: left;
+}
+.title_nav a {
+  color: #8C8C8C;
+}
+.title_nav a_hover {
+  color: #ac2925;
+}
+.title_nav span {
+  margin: 0 7px;
+}
+.content {
+  margin-right: -32px;
+}
+.item {
+  width: 130px;
+  height: 164px;
+  margin-bottom: 5px;
+  margin-right: 32px;
+  float: left;
+}
+.item_img {
+  height: 78px;
+  position: relative;
+}
+.item_img img {
+  width: 130px;
+  height: 78px;
+  display: block;
+}
+.item_img span {
+  position: absolute;
+  width: 35px;
+  height: 18px;
+  line-height: 18px;
+  right: 0;
+  bottom: 0;
+  font-size: 12px;
+  color: #fff;
+  text-indent: 9px;
+}
+.item_img .cq {
+  background-color: #ac2925;
+}
+.item_img .bq {
+  background-color: #5bc0de;
+}
+.item_list {
+  line-height: 22px;
+  font-size: 12px;
+}
+.item_list a {
+  color: #666;
+}
+.item_list a:hover {
+  color: #ac2925;
+}
+.item_list .username,
+.item_list .play,
+.item_list .mess {
+  padding-left: 17px;
+  background-position: left center;
+  background-repeat: no-repeat;
+}

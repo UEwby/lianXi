@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Bootstrap</title>
+    <link rel="stylesheet" type="text/css" href="dist/css/bootstrap.min.css">
+    <script type="text/javascript" src="dist/js/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="dist/js/holder.min.js"></script>
+
+    <style>
+        *{
+            font-family: "微软雅黑";
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <form action="" class="form-inline">
+        <div class="form-group">
+            <label for="exampleInputName2">Name</label>
+            <input type="text" class="form-control" id="exampleInputName2" placeholder="Jane Doe">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail2">Email</label>
+            <input type="email" class="form-control" id="exampleInputEmail2" placeholder="jane.doe@example.com">
+        </div>
+        <button type="submit" class="btn btn-default">Send invitation</button>
+    </form><br>
+    <form action="" class="form-inline">
+        <div class="form-group">
+            <label class="sr-only" for="exampleInputName21">Name</label>
+            <input type="text" class="form-control" id="exampleInputName21" placeholder="Jane Doe">
+        </div>
+        <div class="form-group">
+            <label class="sr-only" for="exampleInputEmail21">Email</label>
+            <input type="email" class="form-control" id="exampleInputEmail21" placeholder="jane.doe@example.com">
+        </div>
+        <button type="submit" class="btn btn-default">Send invitation</button>
+    </form><br>
+    <form action="" class="form-inline">
+        <div class="form-group">
+            <label for="a1" class="sr-only">Amount (in dollars)</label>
+            <div class="input-group">
+                <div class="input-group-addon">$</div>
+                <input type="text" class="form-control" id="a1" name="a1" placeholder="Amount">
+                <div class="input-group-addon">.00</div>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-default">Transfer cash</button>
+    </form><br>
+    <form class="form-horizontal">
+        <div class="form-group has-feedback has-success">
+            <label for="Email" class="col-sm-2 control-label">Email：</label>
+            <div class="col-sm-10">
+                <input type="email" id="Email" class="form-control <!--input-lg-->" placeholder="Email">
+                <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+                <p class="help-block">aphguiorhgpaerhgoirphgoiaehrgiog</p>
+            </div>
+        </div>
+        <div class="form-group has-feedback has-warning">
+            <label for="Password" class="col-sm-2 control-label">Password：</label>
+            <div class="col-sm-10">
+                <input type="password" id="Password" class="form-control <!--input-sm-->" placeholder="Password">
+                <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10 checkbox">
+                <label>
+                    <input type="checkbox"> Remember me
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10 ">
+                <input type="submit" class="btn btn-default" value="Sign in">
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>dom对象转换成jQuery对象</title>
+    <style>
+        *{
+            font-family:'微软雅黑';
+            padding:0;
+            margin:0;
+        }
+        select{
+            width: 100px;
+            height:150px;
+        }
+        .menu{
+            height:50px;
+            background-color: #272822;
+
+        }
+        .menu ul{
+            list-style: none;
+            overflow: hidden;
+        }
+        .menu ul li{
+            float: left;
+            color: #fff;
+            margin-left:15px;
+            line-height: 50px;
+            width:100px;
+            text-align: center;
+
+        }
+        .menu ul li:hover, .menu ul li.cur{
+            cursor: pointer;
+            background: #ccc;
+        }
+        .menu ul li:hover{
+            float: left;
+            cursor: pointer;
+        }
+        .info{
+            padding: 15px;
+            height:250px;
+            background: #ccc;
+            color: #ffffff;;
+            overflow: hidden;
+        }
+        .info p{
+            display: none;
+        }
+        .info p.cur{
+            display: block;
+        }
+    </style>
+    <script src="../common/jquery-1.8.3.min.js"></script>
+</head>
+<body>
+<h1>bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb</h1>
+<h1>bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb</h1>
+<h1>bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb</h1>
+<h1>bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb</h1>
+<h1>bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb</h1>
+<!--<img src="images/a.jpg" id="imgid">-->
+<!--<div class="menu">
+    <ul>
+        <li>linux</li>
+        <li>php</li>
+        <li>javascript</li>
+    </ul>
+</div>
+<div class="info">
+    <p>
+        linux的信息linux的信息linux的信息linux的信息linux的信息linux的信息linux的信息linux的信息linux的信息linux的信息linux的信息linux的信息
+        linux的信息linux的信息linux的信息linux的信息linux的信息linux的信息linux的信息linux的信息linux的信息linux的信息linux的信息linux的信息
+        linux的信息linux的信息linux的信息linux的信息linux的信息linux的信息linux的信息linux的信息linux的信息linux的信息linux的信息linux的信息
+        linux的信息linux的信息linux的信息linux的信息linux的信息linux的信息linux的信息linux的信息linux的信息linux的信息linux的信息linux的信息
+        linux的信息linux的信息linux的信息linux的信息linux的信息linux的信息linux的信息linux的信息linux的信息linux的信息linux的信息linux的信息
+        linux的信息linux的信息linux的信息linux的信息linux的信息linux的信息linux的信息linux的信息linux的信息linux的信息linux的信息linux的信息
+    </p>
+    <p>
+        php的信息php的信息php的信息php的信息php的信息php的信息php的信息php的信息php的信息php的信息php的信息php的信息
+        php的信息php的信息php的信息php的信息php的信息php的信息php的信息php的信息php的信息php的信息php的信息php的信息
+        php的信息php的信息php的信息php的信息php的信息php的信息php的信息php的信息php的信息php的信息php的信息php的信息
+        php的信息php的信息php的信息php的信息php的信息php的信息php的信息php的信息php的信息php的信息php的信息php的信息
+        php的信息php的信息php的信息php的信息php的信息php的信息php的信息php的信息php的信息php的信息php的信息php的信息
+    </p>
+    <p>
+        javascript的信息javascript的信息javascript的信息javascript的信息javascript的信息javascript的信息javascript的信息javascript的信息javascript的信息javascript的信息javascript的信息javascript的信息
+        javascript的信息javascript的信息javascript的信息javascript的信息javascript的信息javascript的信息javascript的信息javascript的信息javascript的信息javascript的信息javascript的信息javascript的信息
+        javascript的信息javascript的信息javascript的信息javascript的信息javascript的信息javascript的信息javascript的信息javascript的信息javascript的信息javascript的信息javascript的信息javascript的信息
+        javascript的信息javascript的信息javascript的信息javascript的信息javascript的信息javascript的信息javascript的信息javascript的信息javascript的信息javascript的信息javascript的信息javascript的信息
+        javascript的信息javascript的信息javascript的信息javascript的信息javascript的信息javascript的信息javascript的信息javascript的信息javascript的信息javascript的信息javascript的信息javascript的信息
+        javascript的信息javascript的信息javascript的信息javascript的信息javascript的信息javascript的信息javascript的信息javascript的信息javascript的信息javascript的信息javascript的信息javascript的信息
+    </p>
+</div>-->
+<script>
+    /*imgobj = document.getElementById('imgid');
+    /!*js转换为jQuery*!/
+    $(imgobj).toggle(function () {
+        this.src = 'images/b.jpg';
+        /!*$(this).attr({'src':'images/b.jpg'}) ;*!/
+    },function () {
+        this.src = 'images/b.jpg';
+        /!*$(this).attr({'src':'images/a.jpg'}) ;*!/
+    });*/
+
+
+    /*jQuery转换为js*/
+    /*val = $("h1")[0].outerHTML;*/
+    //alert(val);
+    //arr = $("h1").get();
+    //alert(arr[0])
+    //alert(arr[1])
+
+    //console.log($("h1").size())
+    //console.log($("h1").length)
+    $('h1').each(function (i) {
+        $(this).data({'num':i+1})
+    })
+    $('h1').click(function () {
+        $(this).html($(this).data('num'))
+    })
+    /*$('.menu li').mouseenter(function () {
+        $(this).addClass('cur').siblings().removeClass('cur')
+        var idx = $(this).index('.menu li');
+        $('.info p').eq(idx).show().addClass('cur');
+        $('.info p').not($($('.info p').eq(idx))).hide().not($($('.info p').eq(idx))).removeClass('cur');
+    })*/
+</script>
+</body>
+</html>

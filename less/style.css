@@ -1,0 +1,50 @@
+/*.sanjiao{
+  width:0;
+  height:0;
+  overflow: hidden;
+  border-width: 10px;
+  border-color: transparent transparent red transparent;
+  border-style: dashed dashed solid dashed;
+}*/
+.sanjiao {
+  border-width: 100px;
+  border-color: transparent transparent red transparent;
+  border-style: dashed dashed solid dashed;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+.pipei {
+  width: 200px;
+  height: 200px;
+  background-color: green;
+  position: fixed;
+}
+.box_02 {
+  width: 280px;
+}
+.list {
+  width: 600px;
+  margin: 30px auto;
+  padding: 0;
+  list-style: none;
+}
+.list li {
+  height: 30px;
+  line-height: 30px;
+  background-color: pink;
+  margin-bottom: 5px;
+  overflow: hidden;
+}
+.list a {
+  float: left;
+}
+.list a:hover {
+  color: red;
+}
+.list span {
+  float: right;
+}
+.border_test {
+  border: 30px red solid;
+}

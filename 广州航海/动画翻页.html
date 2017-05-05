@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../common/jquery-ui.css">
+    <script src="../common/jquery-1.8.3.min.js"></script>
+    <script src="../common/jquery-ui.js"></script>
+    <!--<link rel="stylesheet" href="//jqueryui.com/resources/demos/style.css">-->
+    <style>
+        .Flashimage {float: left;overflow: hidden;padding: 30px 40px 0 0;width: 440px;}
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        ol, ul {
+            list-style: none;
+        }
+        #swfImg{
+            width:440px;
+            height:282px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        #blockPic{
+            width:440px;
+            height:282px;
+            overflow: hidden;
+        }
+
+        #blockPic ul li {
+            width: 440px;
+            height: 282px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 10;
+            margin: 0;
+        }
+        #blockPic ul li .picture a img{
+            width: 440px;
+            height: 282px;
+        }
+        #swfImg .siul {
+            position: absolute;
+            width:100%;
+            right: 1px;
+            bottom: 0;
+            height: 17px;
+            z-index: 100;
+            text-align: right;
+            background: url(./image/_jsSideUl_bg.png) no-repeat right 1px;
+        }
+        #swfImg .siul li.click {
+            background: url(./image/_jsSideUl_bg_li.png) no-repeat 0 0;
+            cursor: default;
+        }
+        #swfImg .siul li {
+            float: left;
+            display: block;
+            cursor: pointer;
+            width: 23px;
+            height: 17px;
+            line-height: 17px;
+            font-size: 12px;
+            color: #fff;
+            text-align: center;
+            background: url(./image/li_bg_.png) no-repeat 0 0;
+        }
+        #pic_title {
+            background: url("pic_title .jpg") no-repeat;
+            height: 27px;
+            letter-spacing: 2px;
+            line-height: 27px;
+            text-align: center;
+            width: 482px;
+            color: #fff;
+        }
+        .flash_article_picture_list {
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+<div class="Flashimage">
+    <div id="swfImg">
+
+    </div>
+    <div class="flash_article_picture_list">
+        <div class="colsubject">
+            <span>首页图片</span>
+            <div style="clear:both"></div>
+        </div>
+        <div class="body">
+            <table cellspacing="0" cellpadding="0">
+                <tbody>
+                <tr>
+                    <td>
+                        <div class="picture"><a href="http://www.gzhmt.edu.cn/infoSingleArticle.do?articleId=5130&amp;columnId=448" target="_blank" title="我校黄燕平老师参加第六届广东高校辅导员职业能力大赛荣获一等奖并获全国赛复赛资格">
+                            <img src="http://www.gzhmt.edu.cn/common/rtfeditor/openfile.jsp?id=DBCPDBDADEDJDECPDBDEDJDCDEDBDIDIDHDIDEDCDBCOGKHAGH" width="482" height="282">
+                        </a></div>
+                        <div class="title">
+                            <a href="http://www.gzhmt.edu.cn/infoSingleArticle.do?articleId=5130&amp;columnId=448" target="_blank" class="" title="我校黄燕平老师参加第六届广东高校辅导员职业能力大赛荣获一等奖并获全国赛复赛资格">
+                                我校黄燕平老师参加第六届广东高校辅导员职业能力大赛荣获一等奖并获全国赛复赛资格
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="picture"><a href="http://www.gzhmt.edu.cn/infoSingleArticle.do?articleId=5114&amp;columnId=448" target="_blank" title="我校通过船员教育和培训质量管理体系换证审核及培训资质现场核验">
+                            <img src="http://www.gzhmt.edu.cn/common/rtfeditor/openfile.jsp?id=DBCPDBDADEDJDGCPDBDEDJDCDEDBDJDCDCDJDDDBDHCOGKHAGH" width="482" height="282">
+                        </a></div>
+                        <div class="title">
+                            <a href="http://www.gzhmt.edu.cn/infoSingleArticle.do?articleId=5114&amp;columnId=448" target="_blank" class="" title="我校通过船员教育和培训质量管理体系换证审核及培训资质现场核验">
+                                我校通过船员教育和培训质量管理体系换证审核及培训资质现场核验
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="picture"><a href="http://www.gzhmt.edu.cn/infoSingleArticle.do?articleId=5047&amp;columnId=448" target="_blank" title="我校召开2016年本科教学工作会议暨学士学位授权评审迎评再动员大会">
+                            <img src="http://www.gzhmt.edu.cn/common/rtfeditor/openfile.jsp?id=DBCPDJDFDGDCCPDCDCFPLILBLBLOCOGKHAGH" width="482" height="282">
+                        </a></div>
+                        <div class="title">
+                            <a href="http://www.gzhmt.edu.cn/infoSingleArticle.do?articleId=5047&amp;columnId=448" target="_blank" class="" title="我校召开2016年本科教学工作会议暨学士学位授权评审迎评再动员大会">
+                                我校召开2016年本科教学工作会议暨学士学位授权评审迎评再动员大会
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="picture"><a href="http://www.gzhmt.edu.cn/infoSingleArticle.do?articleId=5134" target="_blank" title="学校隆重召开第一届教代会暨第一届工代会第二次会议">
+                            <img src="http://www.gzhmt.edu.cn/common/rtfeditor/openfile.jsp?id=DBCPDBDADEDJDFCPDBDEDJDCDEDBDJDBDCDIDIDHDHCOGKHAGH" width="482" height="282">
+                        </a></div>
+                        <div class="title">
+                            <a href="http://www.gzhmt.edu.cn/infoSingleArticle.do?articleId=5134" target="_blank" class="" title="学校隆重召开第一届教代会暨第一届工代会第二次会议">
+                                学校隆重召开第一届教代会暨第一届工代会第二次会议
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="picture"><a href="http://www.gzhmt.edu.cn/infoSingleArticle.do?articleId=4966&amp;columnId=448" target="_blank" title="国际航运中心建设与发展圆桌会议成功举行">
+                            <img src="http://www.gzhmt.edu.cn/common/rtfeditor/openfile.jsp?id=DBCPDJDIDDDICPDBDBCOGKHAGH" width="482" height="282">
+                        </a></div>
+                        <div class="title">
+                            <a href="http://www.gzhmt.edu.cn/infoSingleArticle.do?articleId=4966&amp;columnId=448" target="_blank" class="" title="国际航运中心建设与发展圆桌会议成功举行">
+                                国际航运中心建设与发展圆桌会议成功举行
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div id="pic_title"></div>
+</div>
+<script type="text/javascript">
+    $(function(){
+        var pics = $(".flash_article_picture_list .body table td div.picture");
+        var mar_left = 440 - pics.length*23 - 3;//23是变量
+        $("#swfImg").append("<div id='blockPic'><ul></ul></div><ul class='siul'></ul>");
+
+        pics.each(function (i) {
+            if(i==0) {
+                $("<li style='display: block;'></li>").append($(this)).appendTo($("#blockPic ul"));
+                $("#swfImg .siul").append("<li class='click' style='margin-left:"+mar_left+"px;'>" + parseInt(++i) + "</li>");
+            }else {
+                $("<li style='display: none;'></li>").append($(this)).appendTo($("#blockPic ul"));
+                $("#swfImg .siul").append("<li>" + parseInt(++i) + "</li>");
+            }
+
+        });
+
+        var _sideimg = $("#blockPic li");
+        var _sideli = $(" li",$(".siul"));
+        var _index = 0;
+        var _simg = _sideimg.length;
+        var timer = "";
+        var offset = 4000;
+
+        function slideImg(){
+            if(_index<_simg){
+                _sideimg.eq(_index).fadeIn(1000);
+                _sideimg.eq(_index).siblings("li").fadeOut(1100);
+                _sideli.eq(_index).addClass("click").siblings().removeClass("click");
+                _index++;
+            }else{
+                _index = 0;
+                _sideimg.eq(_index).fadeIn(1000);
+                _sideimg.eq(_index).siblings("li").fadeOut(1100);
+                _sideli.eq(_index).addClass("click").siblings().removeClass("click");
+            }
+            timer = setTimeout(arguments.callee , offset);
+        }
+        slideImg();
+        _sideli.each(function(i){
+            $(this).click(function(){
+                clearTimeout(timer);
+                _index = i;
+                slideImg();
+            });
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>dom对象转换成jQuery对象</title>
+    <style>
+        *{
+            font-family:'微软雅黑';padding:0;margin:0;
+        }
+        .bd{
+            width: 1751px;
+            height: 500px;
+            /*overflow: auto;*/
+            margin:0 auto;
+            /*position: relative;*/
+        }
+        .valuelist{}
+        .valuelist td{border:1px solid #ccc; }
+        .valuelist td{}
+        .valuelist td.room{}
+        .headerTop, .headerTop2,.room{color: chocolate;background:#272822}
+        .td-top1{}
+        .td-top2{width:150px;}
+        .td-room{width:150px;}
+        .td-content{width:150px;}
+    </style>
+    <script src="common/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript">
+
+        var timer='';
+        $(function(){
+            $(".bd").scroll(function(){
+
+                var scrollTop = $(".bd").scrollTop();
+                $(".headerTop").css({"position":"relative","top":scrollTop,"z-index":"3"});
+                $(".headerTop2").css({"position":"relative","top":scrollTop,"z-index":"4"});
+                $(".room").each(function(){
+                    $(this).css({"position":"relative","left":$(".bd").scrollLeft(),"z-index":"2"});
+                });
+
+            });
+        });
+
+    </script>
+</head>
+<body>
+
+<div class="bd">
+    <iframe id="if" src="jf.html" width="100%" height="100%"></iframe>
+
+
+</div>
+
+</body>
+</html>
